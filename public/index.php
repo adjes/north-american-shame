@@ -1,9 +1,4 @@
 <?php 
-require_once __DIR__.'/../vendor/autoload.php';
-
-use App\Router;
-
-
-return Router::init();
+require_once __DIR__.'/../app/boot.php';
 
  ?>

@@ -2,65 +2,119 @@
 
 namespace App\Model;
 
-use App\Database\MySqlDatabase;
-
-// + use App\Database\$class.Database;
+use App\Database\PDOLayer;
+use App\Config;
 
 abstract class AbstractModel
 
 {
 
-	private static function return_db ()
+	private static $db;
+
+	function __construct () {
+		self::$db = $this->get_db();		
+	}
+
+	protected function import($object) {
+        foreach (get_object_vars($object) as $key => $value) {
+            $this->$key = $value;
+        }
+	}
+
+	protected function get_db ()
 	{
-		$map = require __DIR__."/../config/db_class_routing.cfg.php";
+		// $map = require __DIR__."/../config/db_class_routing.cfg.php";
+		$map = Config::$db_class_routing;
 		$class = get_called_class();
-		if (!isset($map[$class])) {
-			$class = "default";
+		if (!$class = array_search($class, $map)) {
+			$class = "MySql";
 		}
-		$db_class = "App\\Database\\".$map[$class]."Database";
-		$db = new $db_class(get_called_class());
-		return $db;
+		return new PDOLayer ($class);
 	}
 
 	public function count () 
 	{
-		$db = static::return_db();
-		return $db -> count();
-	}
+		$db = self::$db;
+		// $class = $this->called_class;
+		$q = "SELECT COUNT(*) FROM " . static::$table;
+		if ($result = $db->sql($q)) {
+			$result = $db->fetch_assoc();
+			$result = ($result) ? array_shift($result) : false;
+		}
+		// gettype($result);
+		return ($result) ? array_shift($result) : false;
 
-	public static function find_all()
-	{
-		$db = static::return_db();
-		return $db -> find_all();
 	}
 
     public function find_by_id($id)
     {
-		$db = static::return_db();
-		return $db -> find_by_id($id);
+        $db = self::$db;
+		// $class = $this->called_class;
+		$q = "SELECT * FROM " . static::$table . " WHERE id = '{$id}'";
+		if ($result = $db->sql($q)) {
+			$result = $db->fetch_class(get_called_class());
+		return array_shift($result);
+		}
     }
 
-    public function create($obj)
+	public function find_all () 
+	{
+		$db = self::$db;
+		// $class = $this->called_class;
+		$q = "SELECT * FROM " . static::$table;
+		if ($result = $db->sql($q)) {
+			$result = $db->fetch_class(get_called_class());
+		return $result;
+		}
+	}
+
+    public function create()
     {
-		$db = static::return_db();
-		return $db -> create($obj);
+		$db = self::$db;
+		// $class = $this->called_class;
+		$arr = get_object_vars($this);
+		$q = "INSERT INTO " . static::$table . " (" . join(", ", array_keys($arr)) . ") VALUES ('" . join("', '", array_values($arr)). "')";
+		if ($db->sql($q)) {
+			$this->id = $db->last_id();
+			return true;
+		} 
     }
 
-    public function update($obj)
+    public function update()
     {
-		$db = static::return_db();
-		return $db -> update($obj);
+		$db = self::$db;
+		// $class = $this->called_class;
+		$arr = get_object_vars($this);
+		$arr2 = [];
+		foreach ($arr as $key => $value) {
+			if ($key!="id") {
+				$arr2[] = $key."= '".$value."'";
+			}
+		}
+		$q = "UPDATE " . static::$table . " SET " . join(",", array_values($arr2)) . " WHERE id = '{$arr["id"]}'"; 
+		if ($db->sql($q) && $db->affected_rows() == 1) {
+			return true;
+		}
     }
 
-    public function delete($obj)
+    public function delete()
     {
-		$db = static::return_db();
-		return $db -> delete($obj);
+		$db = self::$db;
+		// $class = $this->called_class;
+		$arr = get_object_vars($this);
+		$q = "DELETE FROM " . static::$table . " WHERE id =" . $arr["id"] . " LIMIT 1";
+		if ($db->sql($q) && $db->affected_rows() == 1) {
+			return true;
+		}
     }
 
-    public function auth ()
+    public function clear_table()
     {
-		$db = static::return_db();
-		return $db -> auth();
+		$db = self::$db;
+    	$q = "TRUNCATE table " . static::$table;
+    	if ($db->sql($q)) {
+			return true;
+		}
     }
+
 }

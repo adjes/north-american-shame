@@ -2,6 +2,5 @@
 
 	return array(
 
-		"default" => "MySql"
 
 		);

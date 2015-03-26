@@ -10,8 +10,8 @@ Class Item extends AbstractModel
 	public $title;
 	public $content;
 
-	public function __construct()
+	function __construct()
 	{
-
+		parent::__construct();
 	}
 }

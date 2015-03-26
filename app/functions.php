@@ -11,22 +11,21 @@
 		return $cs;
 	}
 
+	// function output_message($message = "") {
+	// 	if(!empty($message)) {
+	// 		return "<p class=\"message\">{$message}</p>";
+	// 	} else {
+	// 		return "";
+	// 	}
+	// }
 
-	function output_message($message = "") {
-		if(!empty($message)) {
-			return "<p class=\"message\">{$message}</p>";
-		} else {
-			return "";
-		}
-	}
-
-	function console_log($data) {
-		if(is_array($data) || is_object($data)) {
-			echo("<script>console.log('PHP: ".json_encode($data)."');</script>");
-		} else {
-			echo("<script>console.log('PHP: ".$data."');</script>");
-		}
-	}
+	// function console_log($data) {
+	// 	if(is_array($data) || is_object($data)) {
+	// 		echo("<script>console.log('PHP: ".json_encode($data)."');</script>");
+	// 	} else {
+	// 		echo("<script>console.log('PHP: ".$data."');</script>");
+	// 	}
+	// }
 
 	function translit($string){
 		$table = array( 
