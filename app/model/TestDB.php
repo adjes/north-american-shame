@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-Class TestModel extends AbstractModel
+Class TestDB extends AbstractModel
 {
 	public static $table = "test";
 
@@ -10,8 +10,8 @@ Class TestModel extends AbstractModel
 	public $title;
 	public $content;
 
-	public function __construct()
-	{
-
-	}
+	// public function __construct()
+	// {
+	// 	parent::__construct();
+	// }
 }

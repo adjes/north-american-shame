@@ -1,10 +1,10 @@
 <?php 
 
-// PDO MySql Database
 
 namespace App\Database;
 
 use \PDO;
+use App\Config;
 
 class PDOLayer
 {
@@ -21,7 +21,8 @@ class PDOLayer
 
 	private function connect($db) {
 
-		$cfg = require __DIR__."/../config/db_vars.cfg.php";
+		// $cfg = require __DIR__."/../config/db_vars.cfg.php";
+		$cfg = Config::$dbs;
 
 		$out  = $cfg[$db]["driver"].":";
 		$out .= "host=".$cfg[$db]["host"].";";
