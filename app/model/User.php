@@ -6,7 +6,7 @@ use App\Config;
 
 class User extends AbstractModel
 {
-	public static $table = "users";
+	protected static $table = "users";
 
 	public $id;
 	public $name;
@@ -16,19 +16,23 @@ class User extends AbstractModel
 
 	function __construct()
 	{
-    	if (!$this->name) {
-	    	if (isset($_POST[Config::$forms['login']]) && isset($_POST[Config::$forms['pass']])) {
-	    		$this->name = $_POST[Config::$forms['login']];
-	    		$this->password = $_POST[Config::$forms['pass']];
-	    	}
+    	if (!$this->id) {
+	    	$this->init();
     	}
-		parent::__construct();
+	}
+
+	protected function init ()
+	{
+    	if (isset($_POST[Config::$forms['login']]) && isset($_POST[Config::$forms['pass']])) {
+    		$this->name = $_POST[Config::$forms['login']];
+    		$this->password = $_POST[Config::$forms['pass']];
+    	}
 	}
 
     public function auth ()
     {
     	if ($this->name && $this->password) {
-	    	$db = $this->get_db();
+	    	$db = self::get_db();
 			$username = $this->name;
 			$password = $this->password;
 			$q = "SELECT * FROM " . self::$table . " WHERE name = '$username' LIMIT 1";

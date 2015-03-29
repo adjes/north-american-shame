@@ -27,9 +27,9 @@ class Test extends AbstractController
 	public function find_all()
 	{
 		//get data to $data
-		$items = new Item;
-		$data = $items->find_all();
-		// $this->data = Item::find_all();
+		// $items = new Item;
+		// $data = $items->find_all();
+		$this->data = Item::find_all();
 		// $this->data = PhotoModel::find_by_id();
 
 		// var_dump($this->data);

@@ -14,4 +14,8 @@ Class TestDB extends AbstractModel
 	// {
 	// 	parent::__construct();
 	// }
+	protected function init() 
+	{
+		
+	}
 }

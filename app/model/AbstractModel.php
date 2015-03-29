@@ -11,14 +11,15 @@ abstract class AbstractModel
 
 	private static $db;
 
-	function __construct () {
-		self::$db = $this->get_db();		
-	}
+	// function __construct () {
+	// 	self::$db = $this->get_db();		
+	// }
 
 	protected function import($object) {
         foreach (get_object_vars($object) as $key => $value) {
             $this->$key = $value;
         }
+        return $this;
 	}
 
 	protected function get_db ()
@@ -32,9 +33,9 @@ abstract class AbstractModel
 		return new PDOLayer ($class);
 	}
 
-	public function count () 
+	public static function count () 
 	{
-		$db = self::$db;
+		$db = static::get_db();
 		// $class = $this->called_class;
 		$q = "SELECT COUNT(*) FROM " . static::$table;
 		if ($result = $db->sql($q)) {
@@ -46,20 +47,9 @@ abstract class AbstractModel
 
 	}
 
-    public function find_by_id($id)
-    {
-        $db = self::$db;
-		// $class = $this->called_class;
-		$q = "SELECT * FROM " . static::$table . " WHERE id = '{$id}'";
-		if ($result = $db->sql($q)) {
-			$result = $db->fetch_class(get_called_class());
-		return array_shift($result);
-		}
-    }
-
-	public function find_all () 
+	public static function find_all () 
 	{
-		$db = self::$db;
+		$db = static::get_db();
 		// $class = $this->called_class;
 		$q = "SELECT * FROM " . static::$table;
 		if ($result = $db->sql($q)) {
@@ -68,9 +58,23 @@ abstract class AbstractModel
 		}
 	}
 
+    public function find_by_id($id)
+    {
+        $db = static::get_db();
+		// $class = $this->called_class;
+		$q = "SELECT * FROM " . static::$table . " WHERE id = '{$id}'";
+		if ($result = $db->sql($q)) {
+			$result = $db->fetch_class(get_called_class());
+		$result = array_shift($result);
+		if ($result) {
+			return static::import($result);
+		} else return false;
+		}
+    }
+
     public function create()
     {
-		$db = self::$db;
+		$db = static::get_db();
 		// $class = $this->called_class;
 		$arr = get_object_vars($this);
 		$q = "INSERT INTO " . static::$table . " (" . join(", ", array_keys($arr)) . ") VALUES ('" . join("', '", array_values($arr)). "')";
@@ -82,7 +86,8 @@ abstract class AbstractModel
 
     public function update()
     {
-		$db = self::$db;
+    	static::init();
+		$db = static::get_db();
 		// $class = $this->called_class;
 		$arr = get_object_vars($this);
 		$arr2 = [];
@@ -92,14 +97,15 @@ abstract class AbstractModel
 			}
 		}
 		$q = "UPDATE " . static::$table . " SET " . join(",", array_values($arr2)) . " WHERE id = '{$arr["id"]}'"; 
+		// var_dump($q);
 		if ($db->sql($q) && $db->affected_rows() == 1) {
 			return true;
-		}
+		} else return false;
     }
 
     public function delete()
     {
-		$db = self::$db;
+		$db = static::get_db();
 		// $class = $this->called_class;
 		$arr = get_object_vars($this);
 		$q = "DELETE FROM " . static::$table . " WHERE id =" . $arr["id"] . " LIMIT 1";
@@ -110,7 +116,7 @@ abstract class AbstractModel
 
     public function clear_table()
     {
-		$db = self::$db;
+		$db = static::get_db();
     	$q = "TRUNCATE table " . static::$table;
     	if ($db->sql($q)) {
 			return true;

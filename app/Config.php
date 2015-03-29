@@ -24,7 +24,8 @@ class Config
 	public static $forms = array (
 		
 		"login" => "name",
-		"pass" => "password"
+		"pass" => "password",
+		"subject_name" => "subject_name"
 
 		);
 
