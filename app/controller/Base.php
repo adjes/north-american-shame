@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Model\Subject;
+use App\Model\Article;
+
 class Base extends AbstractController
 {
 	
@@ -10,10 +13,22 @@ class Base extends AbstractController
 	// 	echo "Homepage";
 	// }
 
+	public $data=[];
+
 	public function index ()
 	{
-		echo "Homepage";
-		return true;
+		self::session();
+
+		$paths[] = "article_grid";
+
+		$subjects = Subject::find_all();
+		$this->data["subjects"] = $subjects;
+
+		$articles = Article::find_all();
+		$this->data["articles"] = $articles;
+
+		self::render($paths, $this->data);
+
 	}
 
 	public function test ()

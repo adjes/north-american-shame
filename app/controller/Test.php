@@ -14,7 +14,7 @@ class Test extends AbstractController
 		"index" => "IndexView",
 		"test" => "TestView"
 		);
-	private $data;
+	// private $data;
 
 	public function index()
 	{
@@ -29,12 +29,13 @@ class Test extends AbstractController
 		//get data to $data
 		// $items = new Item;
 		// $data = $items->find_all();
-		$this->data = Item::find_all();
+		$paths[] = "TestView";
+		$data = Item::find_all();
 		// $this->data = PhotoModel::find_by_id();
 
 		// var_dump($this->data);
 		//render view
-		return self::render($this->path["test"], $this->data);
+		self::render($paths, $data);
 
 		// return false;
 	}

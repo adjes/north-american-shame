@@ -31,4 +31,14 @@ class Comment extends AbstractModel
 	    		$this->article_id = $_POST[Config::$forms['comment_article_id']];
     	} else return false;
 	}
+
+    public static function find_by_article($id)
+    {
+        $db = self::get_db();
+		$q = "SELECT * FROM " . self::$table . " WHERE article_id = '$id' LIMIT 1";
+		if ($result = $db->sql($q)) {
+			$result = $db->fetch_class(get_called_class());
+		return $result;
+		} else return false;
+    }
 }

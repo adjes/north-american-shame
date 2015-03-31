@@ -56,4 +56,9 @@ class CommentSpec extends ObjectBehavior
         $this->content->shouldBe("fuego");
         $this->delete()->shouldBe(true);
     }
+
+    function it_returns_article_comments()
+    {
+    	$this->find_by_article(1)->shouldBeArray();
+    }
 }
