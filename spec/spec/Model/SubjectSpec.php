@@ -14,13 +14,13 @@ class SubjectSpec extends ObjectBehavior
 
     function it_finds_by_constr()
     {
-        $this->beConstructedWith(47);
-        $this->name->shouldBe("test");
+        $this->beConstructedWith(1);
+        $this->name->shouldBe("default");
     }
 
     function it_finds_by_constr_nothing()
     {
-        $this->beConstructedWith(45);
+        $this->beConstructedWith(-1);
         $this->name->shouldBe(null);
     }      
 

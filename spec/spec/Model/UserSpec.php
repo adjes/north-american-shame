@@ -12,6 +12,12 @@ class UserSpec extends ObjectBehavior
         $this->shouldHaveType('App\Model\User');
     }
 
+    function it_finds_by_constr()
+    {
+        $this->beConstructedWith(1);
+        $this->name->shouldBe("admin");
+    }
+
     function it_auth ()
     {
     	$_POST["name"] = "user";

@@ -15,7 +15,7 @@ class Subject extends AbstractModel
 	{
     	if (!empty($id)) {
     		self::find_by_id($id);
-    	} elseif (!$id || !$this->id) {
+    	} elseif (!$id && !$this->id) {
 	    	$this->init();
     	}
 	}

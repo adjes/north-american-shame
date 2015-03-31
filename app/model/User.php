@@ -14,9 +14,11 @@ class User extends AbstractModel
 
 	public $admin = false;
 
-	function __construct()
+	function __construct($id="")
 	{
-    	if (!$this->id) {
+    	if (!empty($id)) {
+    		self::find_by_id($id);
+    	} elseif (!$id && !$this->id) {
 	    	$this->init();
     	}
 	}
@@ -36,9 +38,9 @@ class User extends AbstractModel
 			$username = $this->name;
 			$password = $this->password;
 			$q = "SELECT * FROM " . self::$table . " WHERE name = '$username' LIMIT 1";
-			// var_dump($q);
 			if ($db->sql($q)) {
 				$result = $db->fetch_class(get_called_class());
+			// var_dump($result);
 				if (!empty($result)) {
 					$result = array_shift($result);
 					if (password_verify($password, $result->password)) {

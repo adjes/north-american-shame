@@ -81,7 +81,7 @@ abstract class AbstractModel
 		if ($db->sql($q)) {
 			$this->id = $db->last_id();
 			return true;
-		} 
+		} else return false;
     }
 
     public function update()
