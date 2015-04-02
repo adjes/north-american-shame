@@ -17,7 +17,7 @@ Class Router
 		if (isset($_GET["c"])) {
 			$class = "App\\Controller\\".$_GET["c"];
 			if (!class_exists($class)) {
-				echo $class." not found"."<br>";
+				// echo $class." not found"."<br>";
 				return $ctrl = new Controller\Base;
 			} else {
 				return $ctrl = new $class;

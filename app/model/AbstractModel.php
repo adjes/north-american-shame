@@ -15,11 +15,27 @@ abstract class AbstractModel
 	// 	self::$db = $this->get_db();		
 	// }
 
-	protected function import($object) {
+	protected function import($object) 
+	{
         foreach (get_object_vars($object) as $key => $value) {
             $this->$key = $value;
         }
         return $this;
+	}
+
+	private function table_columns($db) 
+	{
+		$q = "SELECT * FROM " . static::$table . " LIMIT 0";
+		if ($result = $db->sql($q)) {
+			$result = $db->get_columns();
+			foreach ($result as $key) {
+			if (property_exists($this, $key)) {
+				$arr[$key] = $this->$key;
+			}
+			// var_dump($result, $arr);
+		}
+			return $arr;
+		} 
 	}
 
 	protected function get_db ()
@@ -76,7 +92,8 @@ abstract class AbstractModel
     {
 		$db = static::get_db();
 		// $class = $this->called_class;
-		$arr = get_object_vars($this);
+		$arr = self::table_columns($db);
+		// $arr = get_object_vars($this);
 		$q = "INSERT INTO " . static::$table . " (" . join(", ", array_keys($arr)) . ") VALUES ('" . join("', '", array_values($arr)). "')";
 		if ($db->sql($q)) {
 			$this->id = $db->last_id();
@@ -89,7 +106,8 @@ abstract class AbstractModel
     	static::init();
 		$db = static::get_db();
 		// $class = $this->called_class;
-		$arr = get_object_vars($this);
+		// $arr = get_object_vars($this);
+		$arr = self::table_columns($db);
 		$arr2 = [];
 		foreach ($arr as $key => $value) {
 			if ($key!="id") {

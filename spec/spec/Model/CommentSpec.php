@@ -5,6 +5,7 @@ namespace spec\App\Model;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
+
 class CommentSpec extends ObjectBehavior
 {
     function it_is_initializable()
@@ -61,4 +62,10 @@ class CommentSpec extends ObjectBehavior
     {
     	$this->find_by_article(1)->shouldBeArray();
     }
+
+    // function it_checks_user_in_comment()
+    // {
+    // 	$this->beConstructedWith(1);
+    // 	$this->user->shouldHaveType("App\Model\User");
+    // }
 }

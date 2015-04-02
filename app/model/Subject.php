@@ -6,7 +6,7 @@ use App\Config;
 
 class Subject extends AbstractModel
 {
-	protected static $table = "subjects";
+	public static $table = "subjects";
 
 	public $id;
 	public $name;

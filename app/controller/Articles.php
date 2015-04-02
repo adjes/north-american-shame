@@ -22,7 +22,7 @@ class Articles extends AbstractController
 
 	public function show ()
 	{
-		self::session();
+		// self::session();
 
 		$paths[] = "article_show";
 
@@ -38,6 +38,8 @@ class Articles extends AbstractController
 			}
 			
 		}
+
+		// $this->data["menu"] = $this->menu;
 
 		self::render($paths, $this->data);
 	}

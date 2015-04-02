@@ -69,5 +69,14 @@ class PDOLayer
 		return $this->pdo->lastInsertId();
 	}
 
+	public function get_columns()
+	{
+		for ($i = 0; $i < $this->state->columnCount(); $i++) {
+		    $col = $this->state->getColumnMeta($i);
+		    $columns[] = $col['name'];
+		}
+	    return $columns;
+	}
+
 }
 

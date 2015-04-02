@@ -6,7 +6,7 @@ use App\Config;
 
 class User extends AbstractModel
 {
-	protected static $table = "users";
+	public static $table = "users";
 
 	public $id;
 	public $name;

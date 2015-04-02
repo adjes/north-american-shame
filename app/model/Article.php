@@ -7,7 +7,7 @@ use App\Config;
 
 class Article extends AbstractModel
 {
-	protected static $table = "articles";
+	public static $table = "articles";
 
 	public $id;
 	public $title;

@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use App\Config;
+use App\Model\User;
 
 
 class Comment extends AbstractModel
@@ -14,13 +15,19 @@ class Comment extends AbstractModel
 	public $user_id;
 	public $article_id;
 
+	// public $name;
+
 	function __construct($id="")
 	{
     	if (!empty($id)) {
     		self::find_by_id($id);
+    		var_dump($this);
     	} elseif (!$id && !$this->id) {
 	    	return $this->init();
-    	}
+    	} 
+    	// elseif ($this->id) {
+		// 	$this->user = new User($this->user_id);
+		// }
 	}
 
 	protected function init ()
@@ -35,7 +42,9 @@ class Comment extends AbstractModel
     public static function find_by_article($id)
     {
         $db = self::get_db();
-		$q = "SELECT * FROM " . self::$table . " WHERE article_id = '$id' LIMIT 1";
+		$q = "SELECT " . self::$table . ".*, " . User::$table. ".name FROM " . self::$table . " 
+			LEFT JOIN " . User::$table . " 
+			ON " . self::$table . ".article_id = '$id' AND " . self::$table . ".user_id =" . User::$table . ".id";
 		if ($result = $db->sql($q)) {
 			$result = $db->fetch_class(get_called_class());
 		return $result;
