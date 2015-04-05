@@ -53,6 +53,7 @@ class Session
         	// if ($user->admin) {
          //        $_SESSION['user_admin'] = true;
         	// } else $_SESSION['user_admin'] = false;
+            return true;
         } else return false;
     }
 

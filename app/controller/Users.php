@@ -11,7 +11,7 @@ class Users extends AbstractController
     {
         if (!self::$session->login()) {
             return false;
-        } else redirect_to(__DIR__ . "/../../public/index");
+        } else redirect_to(__DIR__ . "/../../public/index.php");
         	
     }
 }

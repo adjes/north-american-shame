@@ -17,12 +17,12 @@ class BaseSpec extends ObjectBehavior
     	$this->shouldNotThrow()->during("index");
     }
 
-    function it_tests_index_w_user()
-    {
-    	$_SESSION["user_id"] = 1;
-    	$_SESSION["user_name"] = "Admin";
-    	$_SESSION["user_admin"] = true;
-    	$this->shouldNotThrow()->during("index");
-    	$this->data->shouldHaveKey('user');
-    }
+    // function it_tests_index_w_user()
+    // {
+    // 	$_SESSION["user_id"] = 1;
+    // 	$_SESSION["user_name"] = "Admin";
+    // 	$_SESSION["user_admin"] = true;
+    // 	$this->shouldNotThrow()->during("index");
+    // 	$this->data->shouldHaveKey('user');
+    // }
 }

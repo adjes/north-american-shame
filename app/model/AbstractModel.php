@@ -9,7 +9,7 @@ abstract class AbstractModel
 
 {
 
-	private static $db;
+	// private static $db;
 
 	// function __construct () {
 	// 	self::$db = $this->get_db();		

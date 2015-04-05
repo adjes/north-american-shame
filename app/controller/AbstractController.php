@@ -13,17 +13,19 @@ abstract class AbstractController
 
 	function __construct()
 	{
-		static::session();
+		if (!isset($session)) {
+			static::session();
+		}
 		// static::get_menu();
 	}
 
 	protected function session ()
 	{
 		self::$session = new Session();
-		if (self::$session->is_logged_in()) {
-			$user = new User(self::$session->user_id);
-			$this->data["user"] = $user;
-		}
+		// if (self::$session->is_logged_in()) {
+		// 	$user = new User(self::$session->user_id);
+		// 	$this->data["user"] = $user;
+		// }
 	}
 
 	protected static function get_menu()

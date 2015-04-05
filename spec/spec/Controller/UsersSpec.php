@@ -16,4 +16,11 @@ class UsersSpec extends ObjectBehavior
     {
     	$this->login()->shouldBe(false);
     }
+
+    function it_checks_login_true()
+    {
+    	$_POST["name"] = "user";
+    	$_POST["password"] = "password";
+    	$this->login()->shouldNotBe(false);
+    }
 }
