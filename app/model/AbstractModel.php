@@ -82,7 +82,7 @@ abstract class AbstractModel
 		if ($result = $db->sql($q)) {
 			$result = $db->fetch_class(get_called_class());
 		$result = array_shift($result);
-		if ($result) {
+		if (!empty($result)) {
 			return static::import($result);
 		} else return false;
 		}

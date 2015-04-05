@@ -34,10 +34,12 @@ class Session
     public function check_login()
     {
         if (isset($_SESSION["user_id"])) {
-        	$this->logged_in = true;
-        	$this->user_id = $_SESSION["user_id"];
-        	$this->user_name = $_SESSION["user_name"];
-            $this->user_admin = $_SESSION["user_admin"];
+            $user = new User($_SESSION["user_id"]);
+            if (!empty($user->id))
+        	   $this->logged_in = true;
+        	   $this->user_id = $user->id;
+        	   $this->user_name = $user->name;
+               $this->user_admin = $user->admin;
         }
     }
 
@@ -45,12 +47,12 @@ class Session
     {
 		$user = new User;
         if ($user->auth()) {
-        	$this->logged_in = true;
+        	// $this->logged_in = true;
         	$_SESSION['user_id'] = $user->id;
-        	$_SESSION['user_name'] = $user->name;
-        	if ($user->admin) {
-                $_SESSION['user_admin'] = true;
-        	} else $_SESSION['user_admin'] = false;
+        	// $_SESSION['user_name'] = $user->name;
+        	// if ($user->admin) {
+         //        $_SESSION['user_admin'] = true;
+        	// } else $_SESSION['user_admin'] = false;
         } else return false;
     }
 

@@ -22,8 +22,6 @@ class SessionSpec extends ObjectBehavior
     function it_checks_user_session_false ()
     {
     	$_SESSION["user_id"] = null;
-        $_SESSION["user_name"] = null;
-    	$_SESSION["user_admin"] = null;
     	$this->check_login();
     	$this->is_logged_in()->shouldReturn(false);
     }
@@ -31,8 +29,6 @@ class SessionSpec extends ObjectBehavior
     function it_checks_user_session_true ()
     {
     	$_SESSION["user_id"] = "1";
-        $_SESSION["user_name"] = "admin";
-        $_SESSION["user_admin"] = null;
     	$this->check_login();
     	$this->is_logged_in()->shouldReturn(true);
     }
@@ -44,7 +40,7 @@ class SessionSpec extends ObjectBehavior
     	$this->login();
         $this->check_login();
     	$this->is_logged_in()->shouldBe(true);
-    	$this->is_admin()->shouldBe(false);
+    	$this->is_admin()->shouldBeLike(false);
     }
 
     function it_log_out ()
@@ -64,13 +60,11 @@ class SessionSpec extends ObjectBehavior
     	$_POST["password"] = "admin";
     	$this->login();
         $this->check_login();
-    	$this->is_admin()->shouldBe(true);
+    	$this->is_admin()->shouldBeLike(true);
     }
 
     function it_checks_name () {
     	$_SESSION["user_id"] = "1";
-    	$_SESSION["user_name"] = "admin";
-        $_SESSION["user_admin"] = true;
     	$this->check_login();
     	$this->user_name->shouldBe("admin");
     }
