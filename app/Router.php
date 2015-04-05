@@ -17,8 +17,12 @@ Class Router
 		if (isset($_GET["c"])) {
 			$class = "App\\Controller\\".$_GET["c"];
 			if (!class_exists($class)) {
+				header('HTTP/1.0 404 Not Found');
+				include(__DIR__.'/view/404.php');
+				die();
 				// echo $class." not found"."<br>";
-				return $ctrl = new Controller\Base;
+				// return $ctrl = new Controller\Base;
+				// redirect_to("index");
 			} else {
 				return $ctrl = new $class;
 			}

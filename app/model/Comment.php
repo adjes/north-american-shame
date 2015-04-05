@@ -21,7 +21,7 @@ class Comment extends AbstractModel
 	{
     	if (!empty($id)) {
     		self::find_by_id($id);
-    		var_dump($this);
+    		// var_dump($this);
     	} elseif (!$id && !$this->id) {
 	    	return $this->init();
     	} 
@@ -42,9 +42,11 @@ class Comment extends AbstractModel
     public static function find_by_article($id)
     {
         $db = self::get_db();
-		$q = "SELECT " . self::$table . ".*, " . User::$table. ".name FROM " . self::$table . " 
+		$q = "SELECT " . self::$table . ".*, " . User::$table. ".name 
+			FROM " . self::$table . " 
 			LEFT JOIN " . User::$table . " 
-			ON " . self::$table . ".article_id = '$id' AND " . self::$table . ".user_id =" . User::$table . ".id";
+			ON " . self::$table . ".user_id =" . User::$table . ".id 
+			WHERE " . self::$table . ".article_id = $id";
 		if ($result = $db->sql($q)) {
 			$result = $db->fetch_class(get_called_class());
 		return $result;
