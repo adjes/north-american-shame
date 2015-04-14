@@ -5,17 +5,20 @@ namespace App\Controller;
 use App\Session;
 use App\Model\User;
 use App\Model\Menu;
+use App\Model\SiteDesc;
 
 abstract class AbstractController
 {
 
 	protected static $session;
+	protected static $site_desc;
 
 	function __construct()
 	{
 		if (!isset($session)) {
 			static::session();
 		}
+		self::$site_desc = new SiteDesc();
 		// static::get_menu();
 	}
 

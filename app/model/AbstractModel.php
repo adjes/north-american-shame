@@ -81,10 +81,10 @@ abstract class AbstractModel
 		$q = "SELECT * FROM " . static::$table . " WHERE id = '{$id}'";
 		if ($result = $db->sql($q)) {
 			$result = $db->fetch_class(get_called_class());
-		$result = array_shift($result);
-		if (!empty($result)) {
-			return static::import($result);
-		} else return false;
+			$result = array_shift($result);
+			if (!empty($result)) {
+				return static::import($result);
+			} else return false;
 		}
     }
 
@@ -129,7 +129,7 @@ abstract class AbstractModel
 		$q = "DELETE FROM " . static::$table . " WHERE id =" . $arr["id"] . " LIMIT 1";
 		if ($db->sql($q) && $db->affected_rows() == 1) {
 			return true;
-		}
+		} else return false;
     }
 
     public function clear_table()

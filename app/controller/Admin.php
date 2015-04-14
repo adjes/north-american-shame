@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Model\Article;
 use App\Model\User;
+use App\Model\Subject;
+use App\Model\SiteDesc;
 
 class Admin extends AbstractController
 {
+    public $data=[];
 	
 	function __construct()
 	{
@@ -40,8 +43,16 @@ class Admin extends AbstractController
     public function subjects()
     {
     	$paths[]= "admin_list_subjects";
-        $subjects = User::find_all();
+        $subjects = Subject::find_all();
         $this->data["subjects"] = $subjects;
+        self::render($paths, $this->data);
+    }
+
+    public function settings()
+    {
+        $paths[]= "admin_settings";
+        // $subjects = new SiteDesc();
+        // $this->data["site"] = $subjects;
         self::render($paths, $this->data);
     }
 }
