@@ -36,6 +36,9 @@ class Config
 		"comment_user_id" => "comment_user_id",
 		"comment_article_id" => "comment_article_id",
 
+		"site_title" => "site_title",
+		"site_meta" => "site_meta",
+
 		);
 
 }

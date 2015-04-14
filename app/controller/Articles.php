@@ -43,4 +43,41 @@ class Articles extends AbstractController
 
 		self::render($paths, $this->data);
 	}
+
+	public function edit ()
+	{
+		if (self::$session->is_admin()) {
+			$paths[] = "article_edit";
+
+			$article = new Article($_GET["id"]);
+			$article -> update();
+			$this->data["article"] = $article;
+			self::render($paths, $this->data);
+		}
+	}
+
+	public function add()
+	{
+		if (self::$session->is_admin()) {
+			$paths[] = "article_add";
+
+			$article = new Article();
+			if (isset($_POST["submit"])) {
+				$article -> create();
+			}
+			$this->data["article"] = $article;
+			self::render($paths, $this->data);
+		}
+	}
+
+	public function delete()
+	{
+		if (self::$session->is_admin()) {
+
+			$article = new Article($_GET["id"]);
+			if (isset($_POST["submit"]) && $article -> delete()) {
+				redirect_to("index.php");
+			}
+		}
+	}
 }

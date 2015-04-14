@@ -34,4 +34,9 @@ class AdminSpec extends ObjectBehavior
     	$this->subjects()->shouldNotThrow();
     }
 
+    function it_calls_site_desc()
+    {
+        $this->settings()->shouldNotThrow();
+    }
+
 }
