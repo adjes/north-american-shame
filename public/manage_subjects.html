@@ -82,11 +82,8 @@
 
     	<!-- modals -->
 		<div id="register" class="column-s-12 column-m-12 modal">
-	    		<form class="register modal-block">
-        			<a href="#" class="modal-close">X</a>
-						<div class="column-s-12">
-							<h2>Create new account</h2>
-						</div>
+	    		<form class="register">
+        			<a href="#" class="close-modal">X</a>
         				<div class="row">
 	        				<div class="column-s-4 column-m-4">
 	        					<label>Username </label>
@@ -103,11 +100,9 @@
 	        					<input type="password">
 	        				</div>
 	        			</div>
-						<div class="row">
-							<div class="column-s-12">
-								<div class="btn"><a href="">Save</a></div>
-							</div>
-						</div>
+	        			<div class="row">
+	        				<input class="column-s-12" type="submit" value="Create new account">
+	        			</div>
         		</form>
 	    	</div>
 
@@ -164,30 +159,69 @@
 		<div class="row content">
 	    	<div class="column-m-8 column-s-12 content-left">
 				<div class="row content-block">
-					<h2>Contrary to popular belief</h2>
-					<div class="admin-art-ctrl">
-						<a href="">Edit article</a>
-					</div>
-					<p class="art-title-desc">by User, 31.12.2015</p>
-			    	<p class="art-text"> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. <a href="">Lorem Ipsum comes from sections</a> 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.	The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de <a href="">Finibus Bonorum</a> et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-			    	</p>
-			    	<div class= "comments-link">
-			    		<a href="">Comments (0)</a>
-			    	</div>
+					<h2>Manage subjects</h2>
+				    <div class="manage-subjects">
+		    			<ul>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<input type="text" value="Politics">
+								</div>
+								<a href="" class="column-s-3 column-m-3">Rename</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<input type="text" value="Culture">
+								</div>
+								<a href="" class="column-s-3 column-m-3">Rename</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<input type="text" value="Society">
+								</div>
+								<a href="" class="column-s-3 column-m-3">Rename</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<input type="text" value="Sport">
+								</div>
+								<a href="" class="column-s-3 column-m-3">Rename</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<input type="text" value="World">
+								</div>
+								<a href="" class="column-s-3 column-m-3">Rename</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<input type="text" value="Art">
+								</div>
+								<a href="" class="column-s-3 column-m-3">Rename</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<input type="text" value="Travel">
+								</div>
+								<a href="" class="column-s-3 column-m-3">Rename</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    			</ul>
+		    		</div>
 	    		</div>
-	    		<div class="row content-block">
-	    			<h2>Contrary to popular belief</h2>
-					<div class="admin-art-ctrl">
-						<a href="">Edit article</a>
-					</div>
-					<p class="art-title-desc">by User, 31.12.2015</p>
-			    	<p class="art-text"> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. <a href="">Lorem Ipsum comes from sections</a> 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.	The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de <a href="">Finibus Bonorum</a> et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-			    	</p>
-			    	<div class= "comments-link">
-			    		<a href="">Comments (0)</a>
-			    	</div>
-	    		</div>
-			</div>
+	    	</div>
 
 			<div class="column-m-4 s-hidden content-right">
 				<div class="related-block">

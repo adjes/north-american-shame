@@ -45,12 +45,16 @@ img {
     min-height: 1px;
     }
 
-@media only screen and (min-width: 49em) {
+@media only screen and (min-width: 48em) {
  
     .wrapper {
         width: 100%;
         max-width: 80em; 
         }
+
+    .m-hidden {
+    	display: none;
+    }
          
     .column-m-1 {
         width: 8.33333%; 
@@ -106,11 +110,11 @@ img {
  
     .wrapper {
         width: 100%;
-        min-width: 36em;
+        min-width: 37em;
         max-width: 48em; 
         }
 	
-	.column-s-0 {
+	.s-hidden{
 		display: none;
 	}
          
@@ -178,11 +182,63 @@ a {
 	color: #84BCDE;
 }
 
+body a:hover {
+	color: #fb292d;
+}
+
 h1, h2, h3 {
 	/*font-family: 'Open Sans', sans-serif;*/
 	color : white;
 	text-shadow: 0 1px 1px #000;
 }
+
+/*elements*/
+
+.thin-ul {
+	border-bottom: 0.1em solid black;
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn {
+	padding: 0.1em 0.5em;
+	background: rgba(255, 255, 255, 0.05);
+	display: inline;
+	border: 1px solid;
+	border-color: rgba(0, 0, 0, 0.5);
+	text-decoration: none;
+	text-align: center;
+}
+
+.btn a {
+	text-decoration: none;
+}
+
+.inner-row {
+	background-color: rgba(0, 0, 0, 0.05);
+	border-width: 0.1em 0.1em 0.1em 0.1em;
+	border-style: solid;
+	border-color: rgba(255, 255, 255, 0.03);
+	box-shadow: inset 0 1px 0.3em 0 rgba(0, 0, 0, 0.7);
+}
+
+.content-block {
+	margin-bottom: 1em;
+	padding: 1em 1em;
+	background-color: rgba(0, 0, 0, 0.3);
+	box-shadow: inset 0 1px 0.5em 0 rgba(0, 0, 0, 0.8);
+}
+
+.modal-block {
+	position: relative;
+	padding: 0.5em 1em;
+	background: #2F2F2F;
+	border-radius: 0.5em;
+	/*border: 0.1em solid rgba(255, 255, 255, 0.03); */
+	box-shadow: inset 0 1px 1em 0 rgba(0, 0, 0, 0.8);
+}
+
+
+/*content*/
 
 .header {
 	padding-top: 1em;
@@ -199,7 +255,6 @@ h1, h2, h3 {
 .menu-block {
 	border-bottom: 0.1em solid black;
 	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-	min-height: 2.8em;
 }
 
 .menu li {
@@ -217,24 +272,29 @@ h1, h2, h3 {
 	display: block;
 }
 
+.logo {
+	float: right;
+}
+
 
 .login-block {
-	min-height: 2.8em;
-	border-bottom: 0.1em solid black;
-	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+	float: right;
+}
+
+.login-block  a {
+	font-size: 1em;
+}
+
+.login-block span {
+	margin: 0 0.2em 0 0.2em;
 }
 
 .login {
-	margin-top: 0.2em;
-	float:right;
+	display:inline;
 }
 
 .login input {
 	max-width: 6em;
-}
-
-.login a {
-	font-size: 1em;
 }
 
 .admin-menu {
@@ -275,6 +335,137 @@ h1, h2, h3 {
 	box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
+/*admin area*/
+
+.manage-subjects {
+	margin-top: 1em;
+	text-align: center;
+}
+
+.manage-articles {
+	text-align: center;
+}
+
+.art-add-new {
+	margin: 1em;
+}
+
+.manage-users {
+	margin-top: 1em;
+	text-align: center;
+
+}
+
+
+
+/*modal windows*/
+
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 1;
+	opacity:0;
+	pointer-events: none;
+}
+
+.modal:target {
+	opacity: 1;
+	transition: opacity 100ms ease-in;
+	pointer-events: auto;
+}
+
+.register {
+	width: 20em;
+	margin: 5em auto;
+	/*line-height: 1.6em;*/
+}
+
+.register input {
+	width: 100%;
+}
+
+.register .btn {
+	float: right;
+}
+
+.modal-close {
+	position: absolute;
+	top: -0.5em;
+	right: -0.5em;
+	width: 1.5em;
+	border-radius: 100%;
+	background: #2F2F2F;
+	box-shadow: 0 1px 0.2em 0 rgba(0, 0, 0, 0.5);
+	text-align: center;
+	font-size: 1em;
+	font-weight: bold;
+	color: #BEBEBE;
+	text-decoration: none;
+}
+
+.modal-close:hover {
+	color: #fb292d;
+	box-shadow: 0 1px 0.2em 0 rgba(0, 0, 0, 0.1);
+}
+
+/*modal - admin*/
+
+.article-edit {
+	width: 36em;
+	margin: 5em auto;
+}
+
+.article-edit label {
+	padding: 0.5em;
+}
+
+.article-edit .btn {
+	float: right;
+
+}
+
+.article-edit input, textarea {
+	width: 100%;
+	max-width: 100%;
+}
+
+.article-edit textarea{
+	min-height: 10em;
+}
+
+.user-edit {
+	width: 15em;
+	margin: 5em auto;
+}
+
+.user-edit .btn {
+	float: right;
+}
+
+.settings {
+	width: 20em;
+	margin: 5em auto;
+}
+
+.settings input, textarea {
+	width: 100%;
+	max-width: 100%;
+}
+
+.settings textarea {
+	min-height: 4em;
+	resize:none;
+}
+
+.settings .btn {
+	float: right;
+}
+
+/*front content*/
 .content {
 	margin: 1em 0;
 	padding: 0.5em;
@@ -283,17 +474,8 @@ h1, h2, h3 {
 }
 
 .article-block {
-	margin-bottom: 1em;
-	padding: 1em 1em;
-	background-color: rgba(0, 0, 0, 0.3);
-	box-shadow: inset 0 1px 0.5em 0 rgba(0, 0, 0, 0.8);
+	
 }
-
-/*.article-block:after {
-	content: "";
-	display: table;
-    clear: both; 
-}*/
 
 .admin-art-ctrl {
 	/*margin-top: -1em;*/
@@ -360,10 +542,6 @@ h1, h2, h3 {
 }
 
 .comment-unit {
-	/*background-color: rgba(255, 255, 255, 0.01);*/
-	/*background-color: rgba(0, 0, 0, 0.05);*/
-	/*border-top: 0.1em solid black;*/
-	/*border-top: 0.05em solid black ;*/
 	background-color: rgba(0, 0, 0, 0.05);
 	border-width: 0.1em 0.1em 0.1em 0.1em;
 	border-style: solid;

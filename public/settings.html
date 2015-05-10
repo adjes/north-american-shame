@@ -65,10 +65,10 @@
 	        	<nav >
 	        		<ul>
 	        			<li><a href="">Log out</a></li>
-	        			<li><a href="">Settings</a></li>
+	        			<li><a href="#settings">Settings</a></li>
 	        			<li><a href="">Manage users</a></li>
 	        			<li><a href="">Manage articles</a></li>
-	        			<li><a href="#manage-subjects">Manage subjects</a></li>
+	        			<li><a href="">Manage subjects</a></li>
 	        		</ul>
 	        	</nav>
 	        </div>
@@ -84,9 +84,6 @@
 		<div id="register" class="column-s-12 column-m-12 modal">
 	    		<form class="register modal-block">
         			<a href="#" class="modal-close">X</a>
-						<div class="column-s-12">
-							<h2>Create new account</h2>
-						</div>
         				<div class="row">
 	        				<div class="column-s-4 column-m-4">
 	        					<label>Username </label>
@@ -103,91 +100,131 @@
 	        					<input type="password">
 	        				</div>
 	        			</div>
-						<div class="row">
-							<div class="column-s-12">
-								<div class="btn"><a href="">Save</a></div>
-							</div>
-						</div>
+	        			<div class="row">
+	        				<input class="column-s-12" type="submit" value="Create new account">
+	        			</div>
         		</form>
-	    	</div>
-
-<!--     	<div id="manage-subjects" class="column-s-12 column-m-12 modal">
-    		<div class="manage-subjects">
-    			<a href="#" class="close-modal">X</a>
-    			<ul>
-    				<li class="row">
-    					<div class="column-s-1"></div>
-						<div class="column-s-5">
-							<input type="text">
-						</div>
-						<a href="" class="column-s-3">Rename</a>
-						<a href="" class="column-s-3">Delete</a>
-    				</li>
-    				<li class="row">
-    					<div class="column-s-1"></div>
-						<div class="column-s-5">
-							<input type="text">
-						</div>
-						<a href="" class="column-s-3">Rename</a>
-						<a href="" class="column-s-3">Delete</a>
-    				</li>
-    				<li class="row">
-    					<div class="column-s-1"></div>
-						<div class="column-s-5">
-							<input type="text">
-						</div>
-						<a href="" class="column-s-3">Rename</a>
-						<a href="" class="column-s-3">Delete</a>
-    				</li>
-    				<li class="row">
-    					<div class="column-s-1"></div>
-						<div class="column-s-5">
-							<input type="text">
-						</div>
-						<a href="" class="column-s-3">Rename</a>
-						<a href="" class="column-s-3">Delete</a>
-    				</li>
-    				<li class="row">
-    					<div class="column-s-1"></div>
-						<div class="column-s-5">
-							<input type="text">
-						</div>
-						<a href="" class="column-s-3">Rename</a>
-						<a href="" class="column-s-3">Delete</a>
-    				</li>
-    			</ul>
-    		</div>
-    	</div> -->
-
-
+    	</div>
 		
+		<div id="article-new" class="column-s-12 column-m-12 modal">
+			<div class="article-edit modal-block">
+				<div class="row">
+					<a href="#" class="modal-close">X</a>
+					<div class="column-s-12">
+						<h2>Add new article</h2>
+					</div>
+					<div class="row">
+						<div class="column-s-4 column-m-4">
+							<span>Choose subject: </span>
+						</div>
+						<div class="column-s-8 column-m-8">
+							<select>
+							  <option value="volvo">Politics</option>
+							  <option value="saab">Culture</option>
+							  <option value="mercedes">Society</option>
+							  <option value="audi">Sport</option>
+							</select>
+						</div>
+					</div>
+					<label >Article title:</label>
+					<div class="column-s-12">
+						<input class="art-edit-title" type="text">
+					</div>
+					<label >Article text:</label>
+					<div class="column-s-12">
+						<textarea class="art-edit-body"></textarea>
+					</div>
+					<div class="column-s-12">
+						<div class="btn"><a href="">Save</a></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<div id="user-edit" class="column-s-12 column-m-12 modal">
+			<div class="user-edit modal-block">
+				<div class="row">
+					<a href="#" class="modal-close">X</a>
+					<div class="column-s-12">
+						<h2>Admin</h2>
+					</div>
+					<div class="row">
+					<div class="column-s-4 column-m-4">
+						<span>Admin: </span>
+					</div>
+					<div class="column-s-8 column-m-8">
+						<select>
+						  <option value="true">Yes</option>
+						  <option value="false">No</option>
+						</select>
+					</div>
+					</div>
+					<div class="btn"><a href="">Save</a></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="settings" class="column-s-12 column-m-12 modal">
+			<div class="settings modal-block">
+				<div class="row">
+					<a href="#" class="modal-close">X</a>
+					<div class="column-s-12">
+						<h2>Settings</h2>
+					</div>
+					<div class="row">
+						<div class="column-s-4 column-m-4">
+							<label>Site title</label>
+						</div>
+						<div class="column-s-8 column-m-8">
+							<input type="text">
+						</div>
+					</div>
+					<div class="row">
+						<div class="column-s-4 column-m-4">
+							<label>Meta tags</label>
+						</div>
+						<div class="column-s-8 column-m-8">
+							<textarea></textarea>
+						</div>
+					</div>
+					<div class="column-s-12">
+						<div class="btn"><a href="">Save</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="row content">
 	    	<div class="column-m-8 column-s-12 content-left">
 				<div class="row content-block">
-					<h2>Contrary to popular belief</h2>
-					<div class="admin-art-ctrl">
-						<a href="">Edit article</a>
-					</div>
-					<p class="art-title-desc">by User, 31.12.2015</p>
-			    	<p class="art-text"> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. <a href="">Lorem Ipsum comes from sections</a> 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.	The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de <a href="">Finibus Bonorum</a> et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-			    	</p>
-			    	<div class= "comments-link">
-			    		<a href="">Comments (0)</a>
-			    	</div>
+					<h2>Manage users</h2>
+				    <div class="manage-users ">
+		    			<ul>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1">1</div>
+								<div class="column-s-5 column-m-5">
+									<a href="#user-edit">Admin</a>
+								</div>
+								<div class="column-s-3 column-m-3">
+									<span>Admin</span>
+								</div>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+	    					<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1">2</div>
+								<div class="column-s-5 column-m-5">
+									<a href="#user-edit">Jose Julios</a>
+								</div>
+								<div class="column-s-3 column-m-3">
+									<span>User</span>
+								</div>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    			</ul>
+		    		</div>
 	    		</div>
-	    		<div class="row content-block">
-	    			<h2>Contrary to popular belief</h2>
-					<div class="admin-art-ctrl">
-						<a href="">Edit article</a>
-					</div>
-					<p class="art-title-desc">by User, 31.12.2015</p>
-			    	<p class="art-text"> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. <a href="">Lorem Ipsum comes from sections</a> 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.	The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de <a href="">Finibus Bonorum</a> et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-			    	</p>
-			    	<div class= "comments-link">
-			    		<a href="">Comments (0)</a>
-			    	</div>
-	    		</div>
-			</div>
+	    	</div>
 
 			<div class="column-m-4 s-hidden content-right">
 				<div class="related-block">
