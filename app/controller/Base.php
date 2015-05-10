@@ -19,7 +19,7 @@ class Base extends AbstractController
 	{
 		self::session();
 
-		$paths[] = "article_grid";
+		$paths[] = "main";
 
 		$subjects = Subject::find_all();
 		$this->data["subjects"] = $subjects;
