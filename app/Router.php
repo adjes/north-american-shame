@@ -7,9 +7,15 @@ Class Router
 
 	public static function init ()
 	{
-		$ctrl = self::get_controller(); // returns obj;
-		$method = self::get_method($ctrl); // returns string;
-		return $ctrl->$method();
+		if (check_json()) {
+
+			$ctrl = self::get_controller(); // returns obj;
+			$method = self::get_method($ctrl); // returns string;
+			return $ctrl->$method();
+		} else {
+			require_once(__DIR__.'/../public/index.html');
+			die();
+		}
 
 	}
 	public static function get_controller () {

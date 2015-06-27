@@ -11,6 +11,12 @@
 		return $cs;
 	}
 
+	function check_json() {
+		if(strpos($_SERVER["HTTP_ACCEPT"], "application/json") !== false){
+			return true;
+		} else return false;
+	}
+
 	// function output_message($message = "") {
 	// 	if(!empty($message)) {
 	// 		return "<p class=\"message\">{$message}</p>";

@@ -11,7 +11,7 @@ class Session
 	public $user_id;
 	public $user_name;
 
-	private $user_admin = false;
+	public $user_admin = false; // public for front-side requests
 
 
 	function __construct () {
@@ -26,20 +26,21 @@ class Session
 		return $this->logged_in;
 	}
 
-	public function is_admin ()
-	{
-		return $this->user_admin;
-	}
+	// public function is_admin ()
+	// {
+	// 	return $this->user_admin;
+	// }
 
     public function check_login()
     {
         if (isset($_SESSION["user_id"])) {
             $user = new User($_SESSION["user_id"]);
-            if (!empty($user->id))
+            if (!empty($user->id)) {
         	   $this->logged_in = true;
         	   $this->user_id = $user->id;
         	   $this->user_name = $user->name;
                $this->user_admin = $user->admin;
+           }
         }
     }
 
@@ -49,6 +50,7 @@ class Session
         if ($user->auth()) {
         	// $this->logged_in = true;
         	$_SESSION['user_id'] = $user->id;
+            $this->check_login();
         	// $_SESSION['user_name'] = $user->name;
         	// if ($user->admin) {
          //        $_SESSION['user_admin'] = true;
@@ -66,6 +68,7 @@ class Session
         	$this->user_id = null;
         	$this->user_name = null;
         	session_unset();
-        }
+            return "logged out";
+        } else return "was not logged in";
     }
 }

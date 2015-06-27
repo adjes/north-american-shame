@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<section class="wrapper">
+ 
+        <div class="row header">
+        	<div class="column-s-12 column-m-12 menu-block">
+        		<nav class="menu">
+        			<ul>
+        				<li><a href="">Politics</a></li>
+        				<li><a href="">Culture</a></li>
+        				<li>
+        					<a href="">Society</a>
+        					<ul class="sub-menu">
+        						<li><a href="">Submenu</a></li>
+        						<li><a href="">Submenu</a></li>
+        						<li><a href="">Submenu</a></li>
+        					</ul>
+        				</li>
+        				<li><a href="">Sport</a></li>
+        				<li><a href="">World</a></li>
+        				<li><a href="">Art</a></li>
+        				<li><a href="">Travel</a></li>
+        			</ul>
+        		</nav>
+        		<div class="logo s-hidden">LOGO</div>
+        	</div>
+        	<div class="column-s-12 column-m-12 thin-ul">
+	        	<div class="login-block ">
+	        		<form class="login">
+	        			<label>Login </label><input type="text">
+	        			<label>Password </label><input type="password">
+	        			<!-- <input type="submit" value="Log in"> -->
+	        		</form>
+	        		<span>or</span>
+	        		<a href="#register">Create new account</a>
+	    		</div>
+	    	</div >
+<!-- 	        <div class="column-s-12 column-m-12 thin-ul">
+	        	<div class="login-block ">
+	        		<span>Logged in as: </span><a href="">Admin</a>
+	    		</div>
+	    	</div > -->
+
+	  <!--   	<div id="register" class="column-s-12 column-m-12 modal-register">
+	    		<form class="register">
+        			<a href="#" class="close-modal">x</a>
+	        			<div class="tr">
+	        				<label>Username </label><input type="text">
+	        			</div>
+	        			<div class="tr">
+	        				<label>Password </label><input type="password">
+	        			</div>
+	        			<input type="submit" value="Create new account">
+        		</form>
+	    	</div> -->
+        	
+	        <div class="column-s-12 column-m-12 admin-menu">
+	        	<nav >
+	        		<ul>
+	        			<li><a href="">Log out</a></li>
+	        			<li><a href="">Settings</a></li>
+	        			<li><a href="">Manage users</a></li>
+	        			<li><a href="">Manage articles</a></li>
+	        			<li><a href="#manage-subjects">Manage subjects</a></li>
+	        		</ul>
+	        	</nav>
+	        </div>
+        </div>
+
+    	<div class="row">
+    		<div class="column-m-12 column-s-12 banner-block">
+    			<!-- <span>Head image</span> -->
+    		</div>
+    	</div>
+
+    	<!-- modals -->
+		<div id="register" class="column-s-12 column-m-12 modal">
+	    		<form class="register modal-block">
+        			<a href="#" class="modal-close">X</a>
+        				<div class="row">
+	        				<div class="column-s-4 column-m-4">
+	        					<label>Username </label>
+	        				</div>
+	        				<div class="column-s-8 column-m-8">
+	        					<input type="text">
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<div class="column-s-4 column-m-4">
+	        					<label>Password </label>
+	        				</div>
+	        				<div class="column-s-8 column-m-8">
+	        					<input type="password">
+	        				</div>
+	        			</div>
+	        			<div class="row">
+	        				<input class="column-s-12" type="submit" value="Create new account">
+	        			</div>
+        		</form>
+    	</div>
+		
+		<div id="article-new" class="column-s-12 column-m-12 modal">
+			<div class="article-edit modal-block">
+				<div class="row">
+					<a href="#" class="modal-close">X</a>
+					<div class="column-s-12">
+						<h2>Add new article</h2>
+					</div>
+					<div class="row">
+						<div class="column-s-4 column-m-4">
+							<span>Choose subject: </span>
+						</div>
+						<div class="column-s-8 column-m-8">
+							<select>
+							  <option value="volvo">Politics</option>
+							  <option value="saab">Culture</option>
+							  <option value="mercedes">Society</option>
+							  <option value="audi">Sport</option>
+							</select>
+						</div>
+					</div>
+					<label >Article title:</label>
+					<div class="column-s-12">
+						<input type="text">
+					</div>
+					<label >Article text:</label>
+					<div class="column-s-12">
+						<textarea></textarea>
+					</div>
+					<div class="column-s-12">
+						<div class="btn"><a href="">Save</a></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+
+<!--     	<div id="manage-subjects" class="column-s-12 column-m-12 modal">
+    		<div class="manage-subjects">
+    			<a href="#" class="close-modal">X</a>
+    			<ul>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    			</ul>
+    		</div>
+    	</div> -->
+
+
+		
+		<div class="row content">
+	    	<div class="column-m-8 column-s-12 content-left">
+				<div class="row content-block">
+					<h2>Manage articles</h2>
+					<div class="art-add-new">
+						<a href="#article-new">Add new article</a>
+					</div>
+					<h3>Politics</h3>
+				    <div class="manage-articles ">
+		    			<ul>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<a href="">Cicero, written in 45 BC.</a>
+								</div>
+								<a href="" class="column-s-3 column-m-3">Edit</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<a href="">Cicero, written in 45 BC.</a>
+								</div>
+								<a href="" class="column-s-3 column-m-3">Edit</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    			</ul>
+		    		</div>
+		    		<h3>Culture</h3>
+				    <div class="manage-articles ">
+		    			<ul>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<a href="">Cicero, written in 45 BC.</a>
+								</div>
+								<a href="" class="column-s-3 column-m-3">Edit</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    				<li class="row inner-row">
+		    					<div class="column-s-1 column-m-1"></div>
+								<div class="column-s-5 column-m-5">
+									<a href="">Cicero, written in 45 BC.</a>
+								</div>
+								<a href="" class="column-s-3 column-m-3">Edit</a>
+								<a href="" class="column-s-3 column-m-3">Delete</a>
+		    				</li>
+		    			</ul>
+		    		</div>
+	    		</div>
+	    	</div>
+
+			<div class="column-m-4 s-hidden content-right">
+				<div class="related-block">
+					<H3>Last Politics Articles</H3>
+					<ul>
+						<li><a href="">Cicero, written <span>in 45 BC.</span></a></li>
+						<li><a href="">The standard <span>chunk of Lorem Ipsum</span> used since the 1500s </a></li>
+						<li><a href=""><span>Latin professor</span> at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words </a></li>
+					</ul>
+				</div>	
+				<div class="related-block">
+					<H3>Last Culture Articles</H3>
+					<ul>
+						<li><a href="">Cicero, written <span>in 45 BC.</span></a></li>
+						<li><a href="">The standard <span>chunk of Lorem Ipsum</span> used since the 1500s </a></li>
+						<li><a href=""><span>Latin professor</span> at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words </a></li>
+					</ul>
+				</div>
+				<div class="related-block">
+					<H3>Last Society Articles</H3>
+					<ul>
+						<li><a href="">Cicero, written <span>in 45 BC.</span></a></li>
+						<li><a href="">The standard <span>chunk of Lorem Ipsum</span> used since the 1500s </a></li>
+						<li><a href=""><span>Latin professor</span> at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words </a></li>
+					</ul>
+				</div>    			
+			</div>
+    		
+    	</div>
+
+ 
+</section>
+
+</body>
+</html>

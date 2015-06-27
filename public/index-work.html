@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="http://imgsz/css/main.css">
+</head>
+<body>
+
+	<section class="wrapper">
+
+		<div class="row header">
+			<div class="column-s-12 column-m-12 menu-block">
+				<nav class="menu">
+					<ul>
+						
+					</ul>
+				</nav>
+				<div class="logo s-hidden">LOGO</div>
+			</div>
+			<div class="column-s-12 column-m-12 thin-ul">
+				<div class="login-block">
+					<a href="#login">Login</a>
+					<span>or</span>
+					<a href="#register">Create new account</a>
+				</div>
+			</div >
+<!-- 	        <div class="column-s-12 column-m-12 thin-ul">
+	        	<div class="login-block ">
+	        		<span>Logged in as: </span><a href="">Admin</a>
+	    		</div>
+	    	</div > -->
+
+	  <!--   	<div id="register" class="column-s-12 column-m-12 modal-register">
+	    		<form class="register">
+        			<a href="#" class="close-modal">x</a>
+	        			<div class="tr">
+	        				<label>Username </label><input type="text">
+	        			</div>
+	        			<div class="tr">
+	        				<label>Password </label><input type="password">
+	        			</div>
+	        			<input type="submit" value="Create new account">
+        		</form>
+        	</div> -->
+        	
+        	<div class="column-s-12 column-m-12 admin-menu">
+        		<nav>
+        			<ul>
+<!-- 	        			<li><a href="">Log out</a></li>
+	        			<li><a href="">Settings</a></li>
+	        			<li><a href="">Manage users</a></li>
+	        			<li><a href="">Manage articles</a></li>
+	        			<li><a href="#manage-subjects">Manage subjects</a></li> -->
+	        		</ul>
+	        	</nav>
+	        </div>
+	    </div>
+
+	    <div class="row">
+	    	<div class="column-m-12 column-s-12 banner-block">
+	    		<!-- <span>Head image</span> -->
+	    	</div>
+	    </div>
+
+	    <!-- modals -->
+	    <div id="register" class="column-s-12 column-m-12 modal">
+	    	<form class="login-form modal-block">
+	    		<a href="#" class="modal-close">X</a>
+	    		<div class="column-s-12">
+	    			<h2>Create new account</h2>
+	    		</div>
+	    		<div class="row">
+	    			<div class="column-s-4 column-m-4">
+	    				<label>Username </label>
+	    			</div>
+	    			<div class="column-s-8 column-m-8">
+	    				<input class="input-area" type="text">
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="column-s-4 column-m-4">
+	    				<label>Password </label>
+	    			</div>
+	    			<div class="column-s-8 column-m-8">
+	    				<input class="input-area" type="password">
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="column-s-12">
+	    				<div class="btn"><a href="">Save</a></div>
+	    			</div>
+	    		</div>
+	    	</form>
+	    </div>
+	    <div id="login" class="column-s-12 column-m-12 modal">
+	    	<form class="login-form modal-block">
+	    		<a href="#" class="modal-close">X</a>
+	    		<div class="column-s-12">
+	    			<h2>Login</h2>
+	    		</div>
+	    		<div class="row">
+	    			<div class="column-s-4 column-m-4">
+	    				<label>Username </label>
+	    			</div>
+	    			<div class="column-s-8 column-m-8">
+	    				<input id="login-user" class="input-area" type="text">
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="column-s-4 column-m-4">
+	    				<label>Password </label>
+	    			</div>
+	    			<div class="column-s-8 column-m-8">
+	    				<input id="login-pass" class="input-area" type="password">
+	    			</div>
+	    		</div>
+	    		<div class="row">
+	    			<div class="column-s-12">
+	    				<div class="btn"><a id="loginBtn" href="#">Login</a></div>
+	    			</div>
+	    		</div>
+	    	</form>
+	    </div>
+
+	    <div id="article-new" class="column-s-12 column-m-12 modal">
+	    	<div class="article-edit modal-block">
+	    		<div class="row">
+	    			<a href="#" class="modal-close">X</a>
+	    			<div class="column-s-12">
+	    				<h2>Add new article</h2>
+	    			</div>
+	    			<div class="row">
+	    				<div class="column-s-4 column-m-4">
+	    					<span>Choose subject: </span>
+	    				</div>
+	    				<div class="column-s-8 column-m-8">
+	    					<select id="art-add-subject_id">
+	    					</select>
+	    				</div>
+	    			</div>
+	    			<div class="column-s-12">
+	    				<label>Article title:</label>
+	    			</div>
+	    			<div class="column-s-12">
+	    				<input id="art-add-title" class="input-area" type="text">
+	    			</div>
+	    			<div class="column-s-12">
+	    				<label >Article text:</label>
+	    			</div>
+	    			<div class="column-s-12">
+	    				<textarea id="art-add-content" class="input-area"></textarea>
+	    			</div>
+	    			<div class="column-s-12">
+	    				<div class="btn"><a id="art-add-save-btn" href="#">Save</a></div>
+	    			</div>
+	    		</div>
+	    	</div>
+
+	    </div>
+
+	    <div id="article-edit" class="column-s-12 column-m-12 modal">
+	    	<div class="article-edit modal-block">
+	    		<div class="row">
+	    			<a href="#" class="modal-close">X</a>
+	    			<div class="column-s-12">
+	    				<h2>Edit article</h2>
+	    			</div>
+	    			<div class="row">
+	    				<div class="column-s-4 column-m-4">
+	    					<span>Choose subject: </span>
+	    				</div>
+	    				<div class="column-s-8 column-m-8">
+	    					<select id="art-edit-subject_id">
+	    					</select>
+	    				</div>
+	    			</div>
+	    			<div class="column-s-12">
+	    				<label>Article title:</label>
+	    			</div>
+	    			<div class="column-s-12">
+	    				<input id="art-edit-title" class="input-area" type="text">
+	    			</div>
+	    			<div class="column-s-12">
+	    				<label >Article text:</label>
+	    			</div>
+	    			<div class="column-s-12">
+	    				<textarea id="art-edit-content" class="input-area"></textarea>
+	    			</div>
+	    			<div class="column-s-12">
+	    				<div class="btn"><a id="art-edit-save-btn" href="">Save</a></div>
+	    			</div>
+	    		</div>
+	    	</div>
+
+	    </div>
+
+	    <div id="subject-new" class="column-s-12 column-m-12 modal">
+	    	<div class="subject-new modal-block row">
+	    		<a href="#" class="modal-close">X</a>
+	    		<div class="column-s-12">
+	    			<h2>Add new subject</h2>
+	    		</div>
+	    		<div class="column-s-12">
+	    			<label>Subject name </label>
+	    		</div>
+	    		<div class="column-s-12">
+	    			<input id="subject-newname" class="input-area" type="text">
+	    		</div>
+	    		<div class="column-s-12">
+	    			<div class="btn"><a id="sbj-add-save-btn" href="">Save</a></div>
+	    		</div>
+	    	</div>
+	    </div>
+
+
+
+<!--     	<div id="manage-subjects" class="column-s-12 column-m-12 modal">
+    		<div class="manage-subjects">
+    			<a href="#" class="close-modal">X</a>
+    			<ul>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    				<li class="row">
+    					<div class="column-s-1"></div>
+						<div class="column-s-5">
+							<input type="text">
+						</div>
+						<a href="" class="column-s-3">Rename</a>
+						<a href="" class="column-s-3">Delete</a>
+    				</li>
+    			</ul>
+    		</div> -->
+
+
+
+    		<div class="row content">
+    			
+    			<div class="column-m-12 column-s-12 content-left">
+    				<div class="row">
+    					<div class="column-m-4">
+    						<div class="row content-block article-unit article-preview" data-art-id="65">
+    						<div>
+    							<img src="http://lorempixel.com/output/people-q-g-400-200-2.jpg">
+    						</div>
+    							<h2>
+    								<a href="" class="article-title">Vivamus vestibulum sagittis sapien.
+    								</a>
+    							</h2>
+    							<p class="art-title-desc"> by Liè
+    							</p>
+    							<p class="art-text">Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+    							</p>
+    							<div class="comments-link">
+    								<a href="">Comments (4)
+    								</a>
+    							</div>
+    						</div>
+    					</div>
+    					<div class="column-m-4">
+    						<div class="row content-block article-unit article-preview" data-art-id="65">
+    						<div>
+    							<img src="http://lorempixel.com/output/people-q-g-400-200-2.jpg">
+    						</div>
+    							<h2>
+    								<a href="" class="article-title">Vivamus vestibulum sagittis sapien.
+    								</a>
+    							</h2>
+    							<p class="art-title-desc"> by Liè
+    							</p>
+    							<p class="art-text">Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+    							</p>
+    							<div class="comments-link">
+    								<a href="">Comments (4)
+    								</a>
+    							</div>
+    						</div>
+    					</div>
+    					<div class="column-m-4">
+    						<div class="row content-block article-unit article-preview" data-art-id="65">
+    						<div>
+    							<img src="http://lorempixel.com/output/people-q-g-400-200-2.jpg">
+    						</div>
+    							<h2>
+    								<a href="" class="article-title">Vivamus vestibulum sagittis sapien.
+    								</a>
+    							</h2>
+    							<p class="art-title-desc"> by Liè
+    							</p>
+    							<p class="art-text">Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+    							</p>
+    							<div class="comments-link">
+    								<a href="">Comments (4)
+    								</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="row">
+    					<div class="column-m-4">
+    						<div class="row content-block article-unit article-preview" data-art-id="65">
+    						<div>
+    							<img src="http://lorempixel.com/output/people-q-g-400-200-2.jpg">
+    						</div>
+    							<h2>
+    								<a href="" class="article-title">Vivamus vestibulum sagittis sapien.
+    								</a>
+    							</h2>
+    							<p class="art-title-desc"> by Liè
+    							</p>
+    							<p class="art-text">Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+    							</p>
+    							<div class="comments-link">
+    								<a href="">Comments (4)
+    								</a>
+    							</div>
+    						</div>
+    					</div>
+    					<div class="column-m-4">
+    						<div class="row content-block article-unit article-preview" data-art-id="65">
+    						<div>
+    							<img src="http://lorempixel.com/output/people-q-g-400-200-2.jpg">
+    						</div>
+    							<h2>
+    								<a href="" class="article-title">Vivamus vestibulum sagittis sapien.
+    								</a>
+    							</h2>
+    							<p class="art-title-desc"> by Liè
+    							</p>
+    							<p class="art-text">Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+    							</p>
+    							<div class="comments-link">
+    								<a href="">Comments (4)
+    								</a>
+    							</div>
+    						</div>
+    					</div>
+    					<div class="column-m-4">
+    						<div class="row content-block article-unit article-preview" data-art-id="65">
+    						<div>
+    							<img src="http://lorempixel.com/output/people-q-g-400-200-2.jpg">
+    						</div>
+    							<h2>
+    								<a href="" class="article-title">Vivamus vestibulum sagittis sapien.
+    								</a>
+    							</h2>
+    							<p class="art-title-desc"> by Liè
+    							</p>
+    							<p class="art-text">Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+    							</p>
+    							<div class="comments-link">
+    								<a href="">Comments (4)
+    								</a>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+					
+    			</div>
+
+    			<!-- <div class="column-m-4 s-hidden content-right">
+    				<div class="related-block">
+    					<H3>Last Politics Articles</H3>
+    					<ul>
+    						<li><a href="">Cicero, written <span>in 45 BC.</span></a></li>
+    						<li><a href="">The standard <span>chunk of Lorem Ipsum</span> used since the 1500s </a></li>
+    						<li><a href=""><span>Latin professor</span> at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words </a></li>
+    					</ul>
+    				</div>	
+    				<div class="related-block">
+    					<H3>Last Culture Articles</H3>
+    					<ul>
+    						<li><a href="">Cicero, written <span>in 45 BC.</span></a></li>
+    						<li><a href="">The standard <span>chunk of Lorem Ipsum</span> used since the 1500s </a></li>
+    						<li><a href=""><span>Latin professor</span> at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words </a></li>
+    					</ul>
+    				</div>
+    				<div class="related-block">
+    					<H3>Last Society Articles</H3>
+    					<ul>
+    						<li><a href="">Cicero, written <span>in 45 BC.</span></a></li>
+    						<li><a href="">The standard <span>chunk of Lorem Ipsum</span> used since the 1500s </a></li>
+    						<li><a href=""><span>Latin professor</span> at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words </a></li>
+    					</ul>
+    				</div>    			
+    			</div> -->
+
+    		</div>
+
+
+    	</section>
+
+    	<!-- <script src="js/vendor/require.js"></script> -->
+
+    	<script src="http://imgsz/js/vendor/jquery-1.11.0.min.js"></script>
+
+    	<script src="http://imgsz/js/main.js"></script>
+    	<!-- <script src="js/test.js"></script> -->
+    	<!-- <script src="js/test2.js"></script> -->
+
+
+    </body>
+    </html>

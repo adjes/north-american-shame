@@ -15,6 +15,10 @@ class Comment extends AbstractModel
 	public $user_id;
 	public $article_id;
 
+	public $created_at;
+
+	public $username;
+
 	// public $name;
 
 	function __construct($id="")
@@ -36,6 +40,7 @@ class Comment extends AbstractModel
 	    		$this->content = $_POST[Config::$forms['comment_content']];
 	    		$this->user_id = $_POST[Config::$forms['comment_user_id']];
 	    		$this->article_id = $_POST[Config::$forms['comment_article_id']];
+	    		$this->created_at = date("H:i, d.m.Y");
     	} else return false;
 	}
 

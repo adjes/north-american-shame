@@ -23,14 +23,15 @@ class Config
 
 	public static $forms = array (
 		
-		"login" => "name",
-		"pass" => "password",
+		"name" => "name",
+		"password" => "password",
 
 		"subject_name" => "subject_name",
 
 		"article_title" => "article_title",
 		"article_content" => "article_content",
 		"article_subject_id" => "article_subject_id",
+		"article_user_id" => "article_user_id",
 
 		"comment_content" => "comment_content",
 		"comment_user_id" => "comment_user_id",

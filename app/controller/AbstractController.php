@@ -15,9 +15,9 @@ abstract class AbstractController
 
 	function __construct()
 	{
-		if (!isset($session)) {
+		// if (!isset(self::$session)) {
 			static::session();
-		}
+		// }
 		self::$site_desc = new SiteDesc();
 		// static::get_menu();
 	}

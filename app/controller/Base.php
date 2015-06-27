@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\Subject;
 use App\Model\Article;
+use App\Model\User;
 
 class Base extends AbstractController
 {
@@ -27,7 +28,22 @@ class Base extends AbstractController
 		$articles = Article::find_all();
 		$this->data["articles"] = $articles;
 
-		self::render($paths, $this->data);
+		// if (self::$session->user_admin) {
+            $users = User::find_all();
+            foreach ($users as $user) {
+                if ($user->password) {
+                    unset($user->password);
+                }
+            }
+            $this->data["users"] = $users;
+        // } 
+
+		$this->data["session"] = self::$session;
+
+
+		echo json_encode($this->data);
+
+		// self::render($paths, $this->data);
 
 	}
 

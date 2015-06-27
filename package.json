@@ -1,0 +1,10 @@
+{
+  "name": "cmsz",
+  "version": "0.0.0",
+  "description": "",
+  "main": "public/index.html",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {}
+}

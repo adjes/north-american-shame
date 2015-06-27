@@ -25,9 +25,9 @@ class User extends AbstractModel
 
 	protected function init ()
 	{
-    	if (isset($_POST[Config::$forms['login']]) && isset($_POST[Config::$forms['pass']])) {
-    		$this->name = $_POST[Config::$forms['login']];
-    		$this->password = $_POST[Config::$forms['pass']];
+    	if (isset($_POST[Config::$forms['name']]) && isset($_POST[Config::$forms['password']])) {
+    		$this->name = $_POST[Config::$forms['name']];
+    		$this->password = $_POST[Config::$forms['password']];
     	}
 	}
 

@@ -132,10 +132,12 @@ abstract class AbstractModel
 		} else return false;
     }
 
-    public function clear_table()
+    public function clear_table() // wipe for dummydata upload
     {
 		$db = static::get_db();
-    	$q = "TRUNCATE table " . static::$table;
+    	$q = "SET FOREIGN_KEY_CHECKS = 0;
+    	TRUNCATE table " . static::$table .";
+    	SET FOREIGN_KEY_CHECKS = 1";
     	if ($db->sql($q)) {
 			return true;
 		}
