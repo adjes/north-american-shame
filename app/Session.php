@@ -48,13 +48,9 @@ class Session
     {
 		$user = new User;
         if ($user->auth()) {
-        	// $this->logged_in = true;
         	$_SESSION['user_id'] = $user->id;
             $this->check_login();
-        	// $_SESSION['user_name'] = $user->name;
-        	// if ($user->admin) {
-         //        $_SESSION['user_admin'] = true;
-        	// } else $_SESSION['user_admin'] = false;
+
             return true;
         } else return false;
     }

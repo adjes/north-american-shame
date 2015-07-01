@@ -1,6 +1,12 @@
 var core = function (core) {
    	
-	// get subj&art, session
+// route: events -> util -> ajax -> util -> dom (-> u -> dom);
+
+
+// todo: 
+// pagination;
+// error notifications;
+// css tweaks;
 
 	var config = {
 		dataSource : "http://imgsz/",
@@ -11,10 +17,6 @@ var core = function (core) {
 	var nav = {
 		path : function () {
 			return window.location.pathname;
-			// if (path.indexOf("/") != -1) {
-   //      		path = path.split("/").pop();
-   //      	}
-			// return path;
 		},
 		switchTo: function (path) {
 			switch (path) {
@@ -54,7 +56,6 @@ var core = function (core) {
 					break;
 				case "" :
 				case "/" :
-					// $("span.icon-home").trigger("click");
 					document.title = u.getTitle() + " | Home";
 					d.generateMain();
 					d.subjectSetActive("span.icon-home");
@@ -64,12 +65,6 @@ var core = function (core) {
 					if (path.indexOf("/") != -1) {
 		        		pathArray = path.split("/");
 		        	}
-
-		        	// pathArray.forEach(function(el,index) {
-		        	// 	if (el) {
-		        	// 		pathArray[index] = el.charAt(0).toUpperCase()+el.slice(1);
-		        	// 	}
-		        	// });
 
 		        	console.log(pathArray);
 
@@ -225,8 +220,6 @@ var core = function (core) {
 				    	'<p class="art-text">' +
 				    	u.replaceSpaces(el.content) + 
 				    	'</p>' +
-				    	// '<div class="comments-count">' + el.comments_count + ' Comment(s)</div>' +
-
 				    	'<div class="row comments-block">' +
 				    		
 				    	'</div>' +
@@ -365,12 +358,6 @@ var core = function (core) {
 					return this;
 				}, "json");
 		},
-		// getSession : function () {
-		// 	return $.get(config.dataSource, function (data) {
-		// 		cache.data.session = data;
-		// 		return this;
-		// 	}, "json");
-		// },
 		postLogin : function (data) {
 			ajax.checkAbort();
 			return $.post(config.dataSource + "users/login", 
@@ -671,18 +658,14 @@ var core = function (core) {
 					el.content = data.content;
 					el.subject_id = data.subject_id;
 					el.user_id = data.user_id;
-					//article body update! :)
 					if ($("div.article-unit[data-art-id='" + el.id + "']:not('.article-preview')").length) {
 						d.generateArticleUnit(el.id);
-						// .replaceWith(tmpl.article.articleUnit(el));
 					}
 					$("div.article-preview[data-art-id='" + el.id + "']").replaceWith(tmpl.articlePreview(el));
 					if ($("div.manage-articles-block").length) {
 						d.generateManageArticles();
 					}
 					d.generateRelatedPreview();
-					// $("li.article-unit[data-art-id='" + el.id + "']").replaceWith(tmpl.manageArticles.artLayout(el));
-					// privet :)
 					return;
 				}
 			});
@@ -776,8 +759,6 @@ var core = function (core) {
 				$("select#art-add-subject_id").append(tmpl.manageArticles.selectables(subject));
 				$("select#art-edit-subject_id").append(tmpl.manageArticles.selectables(subject));
 			});
-			// $("select#art-add-subject_id").append(tmpl.manageArticles.selectablesEmpty());
-			// $("select#art-edit-subject_id").append(tmpl.manageArticles.selectablesEmpty());
 		},
 		generateArtEditData : function (id) {
 			var article = cache.data.articles.filter(function(el){
@@ -853,15 +834,9 @@ var core = function (core) {
 		},
 
 		generateUserData: function (id) {
-			// var user = {};
-			// if (cache.data.users) {
 				var user = cache.data.users.filter (function(el){
 					return el.id==id;
 				})[0];
-			// } else {
-			// 	user.name = cache.data.session.user_name;
-			// 	user.admin = cache.data.session.user_admin;
-			// }
 
 			$("span#user-profile-name").text(user.name);
 			if (user.id != cache.data.session.user_id && cache.data.session.user_admin=="1") {
@@ -891,8 +866,6 @@ var core = function (core) {
 		articleSetActive: function (article, subject) {
 			artNode = $("li.article-unit[data-art-id='" + article.id + "'] a");
 			sbjNode = $("li.subject-unit[data-sbj-id='" + subject.id + "'] a");
-			// $("div.content-right li.article-unit").find(".active").removeClass("active");
-			// $(sbjNode).parents("ul").find(".active").removeClass("active");
 			$(".active").removeClass("active");
 			$(artNode).addClass("active");
 			$(sbjNode).addClass("active");
@@ -917,10 +890,6 @@ var core = function (core) {
 		setTitleSettings: function () {
 			$("input#title-name").val(u.getTitle());
 		}
-		// deleteMngSubjectsListItem : function (id) {
-		// 	$(".subject-unit[data-sbj-id='" + id + "']").remove();
-		// }
-
 	};
 
 	var e = {
@@ -945,7 +914,6 @@ var core = function (core) {
 				e.preventDefault();
 				var userData;
 					console.log("lol");
-				// if (cache.data.session.user_admin=="1") {
 					userData = u.getNewUserVal();
 					if (userData.name !== "" && userData.password !== "") {
 						ajax.postUserAdd(userData).then(function(data){
@@ -963,7 +931,6 @@ var core = function (core) {
 							}
 						});
 					}
-				// }
 			});
 		}(),
 		switchToManageArticles : function () {
@@ -993,7 +960,6 @@ var core = function (core) {
 		}(),
 		articleEditData : function () {
 			$("div.content-left").on("click", "a.article-edit-btn-ma, a.article-edit-btn-p, a.article-edit-btn-au", function (e) {
-				// e.preventDefault();
 				cache.editedArticle = u.getArtId(this);
 				d.generateArtEditData(cache.editedArticle.article_id);
 			});
@@ -1022,7 +988,6 @@ var core = function (core) {
 				var id = u.getArtId(this); // object for ajax req
 				ajax.postArtDelete(id).then(function() {
 					u.deleteArticle(id.article_id);
-					// d.deleteMngArticlesListItem(id.article_id);
 				});
 
 			});
@@ -1078,7 +1043,6 @@ var core = function (core) {
 				ajax.postCmntDelete(id).then(function (data) {
 					console.log(data);
 					u.deleteComment(article, data);
-					// d.deleteComment(id.comment_id);
 				});
 			});
 		}(),
@@ -1100,7 +1064,6 @@ var core = function (core) {
 				var id = u.getSbjId(this); // object for ajax req
 				ajax.postSbjDelete(id).then(function() {
 					u.deleteSubject(id.subject_id);
-					// d.deleteMngSubjectsListItem(id.subject_id);
 				});
 
 			});
@@ -1126,7 +1089,6 @@ var core = function (core) {
 				if (id.subject_name !== "") {
 					ajax.postSbjEdit(id).then(function(data) {
 						u.editSubjects(data);
-						// d.deleteMngSubjectsListItem(id.subject_id);
 					});
 				}
 			});
@@ -1163,19 +1125,10 @@ var core = function (core) {
 				var id = u.getUserId(this); // object for ajax req
 				ajax.postUserDelete(id).then(function() {
 					u.deleteUser(id.user_id);
-					// d.deleteMngArticlesListItem(id.article_id);
 				});
 
 			});
 		}(),
-		// userShow: function () {
-		// 	$("div.content-left").on("click", "a.art-desc-user", function (e) {
-		// 		var id = u.getUserId(this); // object for ajax req
-		// 		console.log(id);
-		// 		// cache.editedUser = id;
-		// 		d.generateUserData(id.user_id);
-		// 	});
-		// }(),
 		userEditData: function () {
 			$("div.content-left, div.login-block").on("click", "a.user-title, a.user-title-head, a.art-desc-user, a.cmnt-desc-user", function (e) {
 				var id = u.getUserId(this); // object for ajax req
@@ -1217,30 +1170,25 @@ var core = function (core) {
 		}(),
 		showSettings: function () {
 			$("section.wrapper").on("click", "a#show-settings", function (e) {
-				// e.preventDefault();
 				d.setTitleSettings();
-				// ajax.getDummy().then(function () {
-					// window.history.pushState({page: "index"},"index", "/");
-					// window.location.reload();
-				// });
 			});
 		}(),
 		wipeDataGetDummy: function () {
 			$("section.wrapper").on("click", "a#wipe-get-dummy", function (e) {
-				e.preventDefault();
+				// e.preventDefault();
 				ajax.getDummy().then(function () {
-					// window.history.pushState({page: "index"},"index", "/");
-					window.location.reload();
+					window.history.pushState({page: "index"},"index", "/");
+					window.location.reload(true);
 				});
 			});
 		}(),
 		titleEdit: function () {
 			$("section.wrapper").on("click", "a#title-edit", function (e) {
-				e.preventDefault();
+				// e.preventDefault();
 				var values = u.getTitleEditVal();
 				if (values.site_title !== "") {
 					ajax.postTitle(values).then(function () {
-						// window.history.pushState({page: "index"},"index", "/");
+						window.history.pushState({page: "index"},"index", "/");
 						window.location.reload(true);
 					});
 				}
@@ -1253,7 +1201,6 @@ var core = function (core) {
 
 	function init () {
 
-		// ajax.setup();
 
 		ajax.getData().then(function () {
 
@@ -1263,53 +1210,7 @@ var core = function (core) {
 			d.generateMenu();
 			nav.switchTo(nav.path());
 			d.hideLoader();
-			// d.generateArtPreview();
-			// d.generateArtSelectables();
-			// d.generateRelatedPreview();
 		});
-
-
-
-		// e.login();
-		// e.logout();
-		// e.switchToManageArticles();
-		// e.articleDelete();
-		// e.articleAdd();
-		// e.articleEditData();
-		// e.articleEdit();
-		// e.articleShowUnit();
-		// e.commentPost();
-		// e.commentDelete();
-		// e.switchToManageSubjects();
-		// e.subjectDelete();
-		// e.subjectAdd();
-		// e.subjectEdit();
-		// e.subjectShow();
-		// e.iconHome();
-
-		// ajax.getSession().then(function () {
-		
-		// });
-		// user modal; +
-		// manage-users : add admin/user column; +
-		// manage-articles: check columns on resize; +
-		// diversification user/admin;
-		// Icon for show all articles;
-		// css tweaks;
-		// modals to js;
-		// diversification user/admin;
-		// response messages;
-		// comments;
-// edit article - show, preview
-// delete comment
-// admin options in profile
-// 
-
-// comments - php; user profile; modals;
-// check a/u/g access, modal fonts
-
-// user create error handling; double check access
-// title, access check, browser check, clear & comments
 
 
 
@@ -1320,13 +1221,13 @@ var core = function (core) {
 	});
 
    	return {
-   		u : u,
-   		d : d,
-   		config : config,
-   		cache : cache,
-   		init : init,
-   		ajax : ajax,
-   		nav : nav
+   		// u : u,
+   		// d : d,
+   		// config : config,
+   		// cache : cache,
+   		// init : init,
+   		// ajax : ajax,
+   		// nav : nav
    	};
 
 }({});

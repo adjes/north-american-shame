@@ -13,8 +13,8 @@ class Users extends AbstractController
         	echo json_encode("login failed");
             return false;
         } else 
-        // redirect_to(__DIR__ . "/../../public/index.php");
-        	echo json_encode(self::$session);
+        	// echo json_encode(self::$session);
+            echo "logged in";
     }
 
     public function logout()
@@ -29,18 +29,18 @@ class Users extends AbstractController
     	echo json_encode($user);
     }
 
-    public function get_users()
-    {
-        if (self::$session->user_admin) {
-            $users = User::find_all();
-            foreach ($users as $user) {
-                if ($user->password) {
-                    unset($user->password);
-                }
-            }
-            echo json_encode($users);
-        } else echo "forbidden";
-    }
+    // public function get_users()
+    // {
+    //     if (self::$session->user_admin) {
+    //         $users = User::find_all();
+    //         foreach ($users as $user) {
+    //             if ($user->password) {
+    //                 unset($user->password);
+    //             }
+    //         }
+    //         echo json_encode($users);
+    //     } else echo "forbidden";
+    // }
 
     public function delete()
     {

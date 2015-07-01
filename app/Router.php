@@ -26,9 +26,6 @@ Class Router
 				header('HTTP/1.0 404 Not Found');
 				include(__DIR__.'/view/404.php');
 				die();
-				// echo $class." not found"."<br>";
-				// return $ctrl = new Controller\Base;
-				// redirect_to("index");
 			} else {
 				return $ctrl = new $class;
 			}

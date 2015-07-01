@@ -4,61 +4,35 @@ namespace App\Controller;
 
 use App\Session;
 use App\Model\User;
-use App\Model\Menu;
-use App\Model\SiteDesc;
 
 abstract class AbstractController
 {
 
 	protected static $session;
-	protected static $site_desc;
 
 	function __construct()
 	{
 		// if (!isset(self::$session)) {
 			static::session();
 		// }
-		self::$site_desc = new SiteDesc();
-		// static::get_menu();
 	}
 
 	protected function session ()
 	{
 		self::$session = new Session();
-		// if (self::$session->is_logged_in()) {
-		// 	$user = new User(self::$session->user_id);
-		// 	$this->data["user"] = $user;
-		// }
 	}
 
-	protected static function get_menu()
-	{
-		$menu = Menu::get_menu_items();
-		include_once(__DIR__.'/../view/menu.php');
-	}
+	// protected static function render ($paths=[], $data=[])
+	// {
+	// 	include_once(__DIR__.'/../view/header.php');
 
-	protected static function get_admin_panel()
-	{
-		if (self::$session->is_admin()) {
-			include_once(__DIR__.'/../view/admin_panel.php');
-		}
-	}
+	// 	foreach ($paths as $path) {
+	// 		if (!@include_once(__DIR__.'/../view/'.$path.".php")) {
+	// 			return false;
+	// 		}
+	// 	}
 
-	protected static function render ($paths=[], $data=[])
-	{
-		include_once(__DIR__.'/../view/header.php');
+	// 	include_once(__DIR__.'/../view/footer.php');
 
-		static::get_menu();
-
-		static::get_admin_panel();
-
-		foreach ($paths as $path) {
-			if (!@include_once(__DIR__.'/../view/'.$path.".php")) {
-				return false;
-			}
-		}
-
-		include_once(__DIR__.'/../view/footer.php');
-
-	}
+	// }
 }

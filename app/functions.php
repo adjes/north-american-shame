@@ -4,26 +4,12 @@
 		header("Location: " . $new_location);
 		die;
 	}
-	
-	function strip_zeros_from_date ($string = "") {
-		$nz = str_replace("*0", "", $string);
-		$cs = str_replace("0", "", $nz);
-		return $cs;
-	}
 
 	function check_json() {
 		if(strpos($_SERVER["HTTP_ACCEPT"], "application/json") !== false){
 			return true;
 		} else return false;
 	}
-
-	// function output_message($message = "") {
-	// 	if(!empty($message)) {
-	// 		return "<p class=\"message\">{$message}</p>";
-	// 	} else {
-	// 		return "";
-	// 	}
-	// }
 
 	// function console_log($data) {
 	// 	if(is_array($data) || is_object($data)) {

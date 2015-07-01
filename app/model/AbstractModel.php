@@ -9,11 +9,6 @@ abstract class AbstractModel
 
 {
 
-	// private static $db;
-
-	// function __construct () {
-	// 	self::$db = $this->get_db();		
-	// }
 
 	protected function import($object) 
 	{
@@ -40,7 +35,6 @@ abstract class AbstractModel
 
 	protected function get_db ()
 	{
-		// $map = require __DIR__."/../config/db_class_routing.cfg.php";
 		$map = Config::$db_class_routing;
 		$class = get_called_class();
 		if (!$class = array_search($class, $map)) {
@@ -52,13 +46,11 @@ abstract class AbstractModel
 	public static function count () 
 	{
 		$db = static::get_db();
-		// $class = $this->called_class;
 		$q = "SELECT COUNT(*) FROM " . static::$table;
 		if ($result = $db->sql($q)) {
 			$result = $db->fetch_assoc();
 			$result = ($result) ? array_shift($result) : false;
 		}
-		// gettype($result);
 		return ($result) ? array_shift($result) : false;
 
 	}
@@ -66,7 +58,6 @@ abstract class AbstractModel
 	public static function find_all () 
 	{
 		$db = static::get_db();
-		// $class = $this->called_class;
 		$q = "SELECT * FROM " . static::$table;
 		if ($result = $db->sql($q)) {
 			$result = $db->fetch_class(get_called_class());
@@ -77,7 +68,6 @@ abstract class AbstractModel
     public function find_by_id($id)
     {
         $db = static::get_db();
-		// $class = $this->called_class;
 		$q = "SELECT * FROM " . static::$table . " WHERE id = '{$id}'";
 		if ($result = $db->sql($q)) {
 			$result = $db->fetch_class(get_called_class());
@@ -91,7 +81,6 @@ abstract class AbstractModel
     public function create()
     {
 		$db = static::get_db();
-		// $class = $this->called_class;
 		$arr = self::table_columns($db);
 		// $arr = get_object_vars($this);
 		$q = "INSERT INTO " . static::$table . " (" . join(", ", array_keys($arr)) . ") VALUES ('" . join("', '", array_values($arr)). "')";
@@ -105,8 +94,6 @@ abstract class AbstractModel
     {
     	static::init();
 		$db = static::get_db();
-		// $class = $this->called_class;
-		// $arr = get_object_vars($this);
 		$arr = self::table_columns($db);
 		$arr2 = [];
 		foreach ($arr as $key => $value) {
@@ -115,7 +102,6 @@ abstract class AbstractModel
 			}
 		}
 		$q = "UPDATE " . static::$table . " SET " . join(",", array_values($arr2)) . " WHERE id = '{$arr["id"]}'"; 
-		// var_dump($q);
 		if ($db->sql($q) && $db->affected_rows() == 1) {
 			return true;
 		} else return false;
@@ -124,7 +110,6 @@ abstract class AbstractModel
     public function delete()
     {
 		$db = static::get_db();
-		// $class = $this->called_class;
 		$arr = get_object_vars($this);
 		$q = "DELETE FROM " . static::$table . " WHERE id =" . $arr["id"] . " LIMIT 1";
 		if ($db->sql($q) && $db->affected_rows() == 1) {

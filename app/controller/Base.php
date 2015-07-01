@@ -9,10 +9,6 @@ use App\Model\User;
 class Base extends AbstractController
 {
 	
-	// function __construct()
-	// {
-	// 	echo "Homepage";
-	// }
 
 	public $data=[];
 

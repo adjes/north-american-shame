@@ -29,9 +29,7 @@ class Comment extends AbstractModel
     	} elseif (!$id && !$this->id) {
 	    	return $this->init();
     	} 
-    	// elseif ($this->id) {
-		// 	$this->user = new User($this->user_id);
-		// }
+
 	}
 
 	protected function init ()

@@ -8,10 +8,6 @@ use App\Model\Comment;
 class Articles extends AbstractController
 {
 	
-	// function __construct()
-	// {
-	// 	echo "Homepage";
-	// }
 
 	public $data=[];
 

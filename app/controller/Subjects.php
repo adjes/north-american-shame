@@ -8,11 +8,6 @@ use App\Model\Subject;
 class Subjects extends AbstractController
 {
 	
-	// function __construct()
-	// {
-	// 	echo "Homepage";
-	// }
-
 	public $data=[];
 
 	public function index ()
