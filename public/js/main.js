@@ -3,8 +3,8 @@ var core = function (core) {
 // route: events -> util -> ajax -> util -> dom (-> u -> dom);
 
 
-// todo: 
-// pagination;
+// todo:
+// add cyrillic script regex to htaccess for url recognition;
 // error notifications;
 // css tweaks;
 

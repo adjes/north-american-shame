@@ -7,21 +7,35 @@ module.exports = function(grunt) {
         // or
         map: {
             inline: false, // save all sourcemaps as separate files...
-            annotation: 'dist/css/maps/' // ...to the specified directory
+            annotation: 'public/maps/css/' // ...to the specified directory
         },
 
         processors: [
           require('autoprefixer-core')({browsers: 'last 2 versions'}), // add vendor prefixes
-          // require('cssnano')() // minify the result
+          require('cssnano')() // minify the result
         ]
       },
       dist: {
-        src: 'public/css/*.css'
+        src: 'public/css/main.css',
+        dest: 'public/css/main.min.css'
+      }
+    },
+    uglify: {
+      my_target: {
+        options: {
+          sourceMap: true,
+          sourceMapName: 'public/maps/js/main.js.map'
+        },
+        files: {
+          'public/js/main.min.js': ['public/js/main.js']
+        }
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', ['postcss']);
+
+  grunt.registerTask('default', ['postcss', "uglify"]);
 };
