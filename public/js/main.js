@@ -4,8 +4,8 @@ var core = function (core) {
 
 
 // todo:
+// notifications: user-author delete, login/reg forms, items crud msgs, errors;
 // add cyrillic script regex to htaccess for url recognition;
-// error notifications;
 // css tweaks;
 
 	var config = {
